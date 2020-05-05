@@ -1,0 +1,140 @@
+main {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background: linear-gradient(0deg,
+            rgba(247, 247, 247, 1) 23.8%,
+            rgba(252, 221, 221, 1) 92%);
+}
+
+.audio {
+
+    &-container {
+        margin-top: 7rem;
+        display: flex;
+        padding: 0 1rem;
+        background-color: $color-primary;
+        border-radius: .75rem;
+        -webkit-box-shadow: 0px 15px 30px 0px rgba(252, 169, 169, 0.6);
+        -moz-box-shadow: 0px 15px 30px 0px rgba(252, 169, 169, 0.6);
+        box-shadow: 0px 15px 30px 0px rgba(252, 169, 169, 0.6);
+        position: relative;
+    }
+
+    &-plate {
+        width: 5rem;
+        height: 5rem;
+        border-radius: 50%;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        top: -1.5rem;
+        z-index: 1;
+        animation: rotateInfinite 3s linear infinite;
+        animation-play-state: paused;
+
+        img {
+            width: auto;
+            height: 100%;
+        }
+
+        &:before {
+            content: '';
+            display: block;
+            width: 1rem;
+            height: 1rem;
+            border-radius: 50%;
+            background-color: $color-primary;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+    }
+
+    &-info {
+        position: absolute;
+        top: 0;
+        width: calc(100% - 2rem);
+        padding: .5rem .5rem .75rem 7.5rem;
+        background-color: rgba($color-primary, .5);
+        border-radius: .5rem .5rem 0 0;
+        transition: .3s linear;
+        transform: translateY(0);
+        opacity: 0;
+        visibility: hidden;
+    }
+
+    &-control {
+        margin: 0 2rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    &-btn {
+        background-color: $color-primary;
+        border: none;
+        padding: .5rem;
+        cursor: pointer;
+
+        &:focus {
+            outline: none;
+        }
+
+        &:not(:last-child) {
+            margin-right: 2.5rem;
+        }
+
+        i {
+            color: $color-grey;
+        }
+
+        &-big i {
+            transform: scale(1.5);
+        }
+    }
+
+    &-container.play &-plate {
+        animation-play-state: running;
+    }
+
+    &-container.play &-info {
+        transform: translateY(-100%);
+        opacity: 1;
+        visibility: visible;
+    }
+}
+
+.progress {
+
+    &-container {
+        height: 3px;
+        width: 100%;
+        background: $color-primary;
+        cursor: pointer;
+        margin: .5rem 0;
+        position: relative;
+    }
+
+    position: absolute;
+    height: 100%;
+    width: 0%;
+    background-color: $color-pink;
+
+}
+
+@keyframes rotateInfinite {
+    from {
+        transform: rotate(0);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}

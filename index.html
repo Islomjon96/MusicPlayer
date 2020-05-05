@@ -4,12 +4,42 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
+        integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
     <link rel="stylesheet" href="css/style.css">
-    <title></title>
+    <title>Музыкальный плеер</title>
 </head>
 
 <body>
 
+    <main>
+        <h1>Музыкальный плеер</h1>
+        <div class="audio-container" id="audioContainer">
+            <audio src="music/hey.mp3" id="audio">
+            </audio>
+            <div class="audio-plate">
+                <img src="img/hey.jpg" alt="Hey Image" id="plateImage">
+            </div>
+            <div class="audio-control">
+                <button class="audio-btn" id="audioPrev">
+                    <i class="fa fa-backward"></i>
+                </button>
+                <button class="audio-btn audio-btn-big" id="audioPlay">
+                    <i class="fa fa-play"></i>
+                </button>
+                <button class="audio-btn" id="audioNext">
+                    <i class="fa fa-forward"></i>
+                </button>
+            </div>
+            <div class="audio-info">
+                <p id="audioName">Hey</p>
+                <div class="progress-container" id="progressContainer">
+                    <div class="progress" id="progress">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
     <script src="js/script.js"></script>
 </body>
 
